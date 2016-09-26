@@ -20,6 +20,14 @@ public class OperacionesBD {
     public static final String cover="cover";
     public static final String sinopsis="sinopsis";
     public static final String ranking="ranking";
+    public static final String precioXdia="precioXdia";
+
+    public static final String Table3="reservas";
+    public static final String peliculaAreservar="peliculaAreservar";
+    public static final String usuarioQreserva="usuarioQreserva";
+    public static final String fechaInicio="fechaInicio";
+    public static final String fechaFin="fechaFin";
+    public static final String costo="costo";
 
 
     public static final String sentencia1="CREATE TABLE "+Table1+ " ("
@@ -33,5 +41,11 @@ public class OperacionesBD {
             +nombrepeli+ " VARHCAR ( 30 ) NOT NULL, "+duracion+ " VARCHAR ( 20 ) NOT NULL,"
             +genero+ " VARCHAR ( 20 ) NOT NULL, "+calidad+ " VARCHAR ( 15 ) NOT NULL,"
             +cover+ " VARCHAR ( 20 ) NOT NULL,"
-            +sinopsis+ " VARCHAR( 12 ) NOT NULL,"+ranking+" VARCHAR (12) NOT NULL);";
+            +sinopsis+ " VARCHAR( 12 ) NOT NULL,"+ranking+" VARCHAR (12) NOT NULL, "+precioXdia+" VARCHAR (12);";
+
+    public static final String sentencia3="CREATE TABLE "+Table3+ " ("
+            +peliculaAreservar+ " VARCHAR( 40 ) PRIMARY KEY NOT NULL,"
+            +usuarioQreserva+ " VARCHAR( 40 ) NOT NULL,"
+            +fechaInicio+ " VARCHAR( 20 ) NOT NULL,"
+            +fechaFin+ " VARCHAR( 20 ), "+costo+" VARCHAR ( 12 );";
 }
