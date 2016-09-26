@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class InfoPelicula extends AppCompatActivity {
 
     private TextView etNombrePelicula, etduracion, etgenero, etcalidad, etsinopsis, etranking;
-    String nombrePeli, duracion, genero, calidad, sinopsis, ranking, foto;
+    String nombrePeli, duracion, genero, calidad, sinopsis, ranking, costo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class InfoPelicula extends AppCompatActivity {
                 calidad = c.getString(4);
                 sinopsis = c.getString(6);
                 ranking = c.getString(7);
+                costo = c.getString(8);
             } while(c.moveToNext());
         }
 
@@ -59,6 +60,7 @@ public class InfoPelicula extends AppCompatActivity {
     public void reservar(View v){
         Intent ven = new Intent(this, Reserva.class);
         ven.putExtra("nombrePelicula", nombrePeli);
+        ven.putExtra("costo", costo);
         startActivity(ven);
     }
 }
