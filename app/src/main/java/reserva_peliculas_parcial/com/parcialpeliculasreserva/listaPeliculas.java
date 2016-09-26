@@ -24,18 +24,21 @@ import java.util.List;
 public class listaPeliculas extends AppCompatActivity {
     Cursor registros;
     //Encapsulo en variables los datos de la pelicula que esta en el do while paa pasarlos por intent al infopelicula
-    String nombrepelicula;
+    String nombrepelicula, nombreusuario, consulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_peliculas);
 
+        consulta = getIntent().getStringExtra("consulta");
+        nombreusuario = getIntent().getStringExtra("user");
+        nombreusuario = getIntent().getStringExtra("user");
+
         ArrayList<String> pelis = new ArrayList<>();
         DBHelper admin = new DBHelper(this, "Unac", null,1);
         SQLiteDatabase db=admin.getWritableDatabase();
-        String q = "SELECT * FROM peliculas ORDER BY nombrepeli ASC";
-        registros = db.rawQuery(q, null);
+        registros = db.rawQuery(consulta, null);
         if (registros.moveToFirst()) {
             do {
                 pelis.add(registros.getString(1));
@@ -57,11 +60,41 @@ public class listaPeliculas extends AppCompatActivity {
             ViewGroup vg = (ViewGroup) view;
             TextView tv = (TextView) vg.findViewById(R.id.txt);
             Intent ven = new Intent(listaPeliculas.this, InfoPelicula.class);
-            nombrepelicula = tv.getText().toString() ;
+            nombrepelicula = tv.getText().toString();
             ven.putExtra("nombrepelicula", nombrepelicula);
+            ven.putExtra("user", nombreusuario);
             startActivity(ven);
 
         }
     }
+
+    public void bluray(View v){
+        consulta = "SELECT * FROM peliculas where calidad = 'Blu Ray'";
+        Intent ven = new Intent(this, listaPeliculas.class);
+        ven.putExtra("user", nombreusuario);
+        ven.putExtra("consulta", consulta);
+        startActivity(ven);
+    }
+
+    public void bluray3d(View v){
+        consulta = "SELECT * FROM peliculas where calidad = 'Blu Ray 3D'";
+        Intent ven = new Intent(this, listaPeliculas.class);
+        ven.putExtra("user", nombreusuario);
+        ven.putExtra("consulta", consulta);
+        startActivity(ven);
+    }
+
+    public void todo(View v){
+        consulta = "SELECT * FROM peliculas ORDER BY nombrepeli ASC";
+        Intent ven = new Intent(this, listaPeliculas.class);
+        ven.putExtra("user", nombreusuario);
+        ven.putExtra("consulta", consulta);
+        startActivity(ven);
+    }
+
+
+
+
+
 
 }

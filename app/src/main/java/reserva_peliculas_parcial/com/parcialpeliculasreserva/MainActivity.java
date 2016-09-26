@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     //se crean las variables
     EditText et1, et2;
     private Cursor fila;
+    String usua, usuario, consulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +27,19 @@ public class MainActivity extends AppCompatActivity {
         DBHelper admin = new DBHelper(this, "Unac", null,1);
         SQLiteDatabase db=admin.getWritableDatabase();
 
-        String usuario = et1.getText().toString();
+        usuario = et1.getText().toString();
         String contrasena = et2.getText().toString();
         fila = db.rawQuery("select usuario,contrasena from usuarios where usuario='"+usuario+"'and contrasena='"+contrasena+"'", null);
 
+        consulta = "SELECT * FROM peliculas ORDER BY nombrepeli ASC";
         if (fila.moveToFirst() == true) {
-            String usua = fila.getString(0);
+            usua = fila.getString(0);
             String pass = fila.getString(1);
             if (usuario.equals(usua) && contrasena.equals(pass)) {
                 Intent ven = new Intent(this, listaPeliculas.class);
+                ven.putExtra("user", usuario);
+                ven.putExtra("consulta", consulta);
                 startActivity(ven);
-                et1.setText("");
-                et2.setText("");
             }
         }else
                 Toast.makeText(MainActivity.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
@@ -51,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
     public void registrarLayout(View v){
         Intent ven = new Intent(this, Registro.class);
         startActivity(ven);
+    }
+
+    public void contacto(View v){
+        Intent Con = new Intent(this, Contacto.class);
+        startActivity(Con);
     }
 
 }

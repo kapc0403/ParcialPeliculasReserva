@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="reserva_peliculas_parcial.com.parcialpeliculasreserva.Contacto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:id="@+id/imageView4"
+        android:layout_alignParentStart="false"
+        android:src="@drawable/mapa2" />
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="                                                                                                                   Cl. 64d #70B-12                                                                                  Medellín, Antioquia, Colombia                                                                                           +57 4 2301480                                                                        Abierto ahora:  10–21                                                                                                                                      "
+        android:id="@+id/textView15"
+        android:layout_column="1" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="331dp"
+            android:layout_height="157dp"
+            android:id="@+id/imageView5"
+            android:layout_alignParentStart="false"
+            android:src="@drawable/mapa3"
+            android:layout_column="12" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TableRow>
+
+</TableLayout>

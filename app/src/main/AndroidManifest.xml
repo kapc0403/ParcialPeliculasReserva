@@ -26,7 +26,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".Reserva" />
-        <activity android:name=".InfoPelicula"></activity>
+        <activity android:name=".InfoPelicula" />
+        <activity android:name=".Contacto"></activity>
     </application>
 
 </manifest>

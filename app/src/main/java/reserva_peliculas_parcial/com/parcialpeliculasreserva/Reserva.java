@@ -21,7 +21,7 @@ import java.util.Date;
 public class Reserva extends AppCompatActivity {
 
     EditText et1,et2, et3, et4, et5;
-    String nombre, costoPelicula;
+    String nombre, costoPelicula, nombreUsuario, consulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,9 @@ public class Reserva extends AppCompatActivity {
 
         nombre = getIntent().getStringExtra("nombrePelicula");
         costoPelicula = getIntent().getStringExtra("costo");
+        nombreUsuario = getIntent().getStringExtra("user");
+
+        consulta = "SELECT * FROM peliculas ORDER BY nombrepeli ASC";
 
         et1 = (EditText) findViewById(R.id.et1);
         et2 = (EditText) findViewById(R.id.et2);
@@ -37,6 +40,7 @@ public class Reserva extends AppCompatActivity {
         et4 = (EditText) findViewById(R.id.et4);
         et5 = (EditText) findViewById(R.id.et5);
         //Se le envia al campo et2(Nombre Pelicula) la variable que traemos con el intent
+        et1.setText(nombreUsuario);
         et2.setText(nombre);
     }
 
@@ -65,12 +69,14 @@ public class Reserva extends AppCompatActivity {
 
                 new AlertDialog.Builder(Reserva.this)
                 .setTitle("Reserva Exitosa")
-                .setMessage(usuarioQreserva+", acabas de reservas la pelicula - "+ nombrePelicula+" -. Desde el "+fechaInicio+" hasta el "+fechaFin+" con un costo total de $"+ costoCalculado)
+                .setMessage(usuarioQreserva+", acabas de reservar la pelicula - "+ nombrePelicula+" -. Desde el "+fechaInicio+" hasta el "+fechaFin+" con un costo total de $"+ costoCalculado)
                 .setCancelable(false)
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent ven = new Intent(Reserva.this, listaPeliculas.class);
+                        ven.putExtra("user", nombreUsuario);
+                        ven.putExtra("consulta", consulta);
                         startActivity(ven);
                     }
                 }).create().show();

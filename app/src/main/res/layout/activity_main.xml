@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="reserva_peliculas_parcial.com.parcialpeliculasreserva.MainActivity">
+    tools:context="reserva_peliculas_parcial.com.parcialpeliculasreserva.MainActivity"
+    style="@style/Base.TextAppearance.AppCompat.Display1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,7 +68,18 @@
         android:layout_alignStart="@+id/etContraseña"
         android:layout_marginTop="20dp"
         android:layout_alignEnd="@+id/etContraseña"
-        android:onClick="ingresar" />
+        android:onClick="ingresar"
+        android:background="#2bc66e" />
+    <TextView
+        android:id="@+id/tvContacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿ Donde Estamos ?"
+        android:textStyle="normal|bold"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:onClick="contacto" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -78,7 +90,8 @@
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/textView"
         android:layout_marginTop="40dp"
-        android:onClick="registrarLayout" />
+        android:onClick="registrarLayout"
+        android:background="#FF2BC66E" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -89,5 +102,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/textView"
-        android:onClick="salir" />
+        android:onClick="salir"
+        android:background="#f75252" />
 </RelativeLayout>

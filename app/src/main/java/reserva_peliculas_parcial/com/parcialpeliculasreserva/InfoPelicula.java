@@ -14,6 +14,7 @@ public class InfoPelicula extends AppCompatActivity {
 
     private TextView etNombrePelicula, etduracion, etgenero, etcalidad, etsinopsis, etranking;
     String nombrePeli, duracion, genero, calidad, sinopsis, ranking, costo;
+    String nombreUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class InfoPelicula extends AppCompatActivity {
 
         //Recibo las variables del intent anterior para usarlas
         String nombrepelicula = getIntent().getStringExtra("nombrepelicula");
+        nombreUsuario = getIntent().getStringExtra("user");
 
         DBHelper admin = new DBHelper(this, "Unac", null,1);
         SQLiteDatabase db=admin.getWritableDatabase();
@@ -61,6 +63,7 @@ public class InfoPelicula extends AppCompatActivity {
         Intent ven = new Intent(this, Reserva.class);
         ven.putExtra("nombrePelicula", nombrePeli);
         ven.putExtra("costo", costo);
+        ven.putExtra("user", nombreUsuario);
         startActivity(ven);
     }
 }
