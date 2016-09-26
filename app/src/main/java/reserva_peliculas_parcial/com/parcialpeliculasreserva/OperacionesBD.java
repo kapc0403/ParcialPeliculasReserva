@@ -27,6 +27,7 @@ public class OperacionesBD {
     public static final String usuarioQreserva="usuarioQreserva";
     public static final String fechaInicio="fechaInicio";
     public static final String fechaFin="fechaFin";
+    public static final String diasReserva="diasReserva";
     public static final String costo="costo";
 
 
