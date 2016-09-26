@@ -30,18 +30,17 @@ public class MainActivity extends AppCompatActivity {
         String contrasena = et2.getText().toString();
         fila = db.rawQuery("select usuario,contrasena from usuarios where usuario='"+usuario+"'and contrasena='"+contrasena+"'", null);
 
-        if (fila.moveToFirst() == true){
-            String usua=fila.getString(0);
-            String pass=fila.getString(1);
-            if(usuario.equals(usua)&&contrasena.equals(pass)){
+        if (fila.moveToFirst() == true) {
+            String usua = fila.getString(0);
+            String pass = fila.getString(1);
+            if (usuario.equals(usua) && contrasena.equals(pass)) {
                 Intent ven = new Intent(this, listaPeliculas.class);
                 startActivity(ven);
                 et1.setText("");
                 et2.setText("");
             }
-            else
+        }else
                 Toast.makeText(MainActivity.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
